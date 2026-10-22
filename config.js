@@ -1,0 +1,33 @@
+/* ---------------------------------------------------------------------
+   Настройки подключения. Файл лежит рядом с index.html и грузится первым.
+
+   Правило: страница, открытая с localhost или 127.0.0.1 (Live Server в VS Code),
+   работает с ТЕСТОВОЙ базой. Открытая с GitHub Pages — с БОЕВОЙ.
+   Перепутать нельзя: в тестовом режиме в шапке горит красная плашка «ТЕСТ».
+
+   Где взять url и key: Supabase → нужный проект → Settings → API →
+   Project URL и publishable key. Ключ публичный по смыслу, прятать его не нужно:
+   доступ к данным закрыт политиками RLS.
+--------------------------------------------------------------------- */
+(function () {
+  var isLocal = location.hostname === 'localhost'
+    || location.hostname === '127.0.0.1'
+    || location.hostname === '';
+
+  var PROD = {
+    env: 'prod',
+    url: 'https://aostkaxeytjuuolclugs.supabase.co',
+    key: 'sb_publishable_H5X3q94o_TGHyte_VMvcuQ_hdY9CrhN',
+    returnUrl: 'https://drfva.github.io/my_finance_plan_v2/'
+  };
+
+  var DEV = {
+    env: 'dev',
+    url: 'https://aostkaxeytjuuolclugs.supabase.co',
+    key: 'sb_publishable_H5X3q94o_TGHyte_VMvcuQ_hdY9CrhN',
+    returnUrl: 'https://drfva.github.io/my_finance_plan_v2/'
+  };
+
+  window.APP_CONFIG = isLocal ? DEV : PROD;
+  window.APP_RETURN_URL = window.APP_CONFIG.returnUrl || '';
+})();

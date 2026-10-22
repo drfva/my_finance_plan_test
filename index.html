@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Финансы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/ui/styles.css">
+</head><body>
+<!-- Оболочка: вся разметка приложения собирается в src/ui, запуск — src/main.js -->
+<div id="root"></div>
+<div id="login-screen" style="display:none;max-width:360px;margin:60px auto;padding:24px;">
+  <h2 style="margin-bottom:14px;">Вход</h2>
+  <div id="login-step" style="display:flex;flex-direction:column;gap:10px;">
+    <div class="field"><label>Email</label><input id="login-email" type="email" autocomplete="username"></div>
+    <div class="field"><label>Пароль</label><input id="login-password" type="password" autocomplete="current-password"></div>
+    <button id="login-btn" class="primary">Войти</button>
+    <button id="passkey-btn" style="display:none;">Войти по Face ID / Touch ID</button>
+    <button id="forgot-btn" class="ghost">Забыли пароль?</button>
+  </div>
+  <div id="reset-step-1" style="display:none;flex-direction:column;gap:10px;">
+    <div class="small-note">Пришлём на почту ссылку для смены пароля. Перейдёте по ней — вернётесь сюда и зададите новый пароль.</div>
+    <div class="field"><label>Email</label><input id="reset-email" type="email" autocomplete="username"></div>
+    <button id="reset-send-btn" class="primary">Отправить ссылку</button>
+    <button id="reset-back-btn" class="ghost">Назад ко входу</button>
+  </div>
+  <div id="reset-step-2" style="display:none;flex-direction:column;gap:10px;">
+    <div class="small-note">Откройте письмо и перейдите по ссылке — вернётесь сюда уже с правом сменить пароль. Эту вкладку можно закрыть.</div>
+    <div class="small-note">Если в письме пришёл код (так бывает, когда подключён свой SMTP), введите его здесь вместе с новым паролем.</div>
+    <div class="small-note" id="reset-return-url"></div>
+    <div class="field"><label>Код из письма (если есть)</label><input id="reset-code" inputmode="numeric" autocomplete="one-time-code"></div>
+    <div class="field"><label>Новый пароль</label><input id="reset-password" type="password" autocomplete="new-password"></div>
+    <div class="field"><label>Ещё раз</label><input id="reset-password2" type="password" autocomplete="new-password"></div>
+    <button id="reset-save-btn" class="primary">Сохранить пароль и войти</button>
+    <button id="reset-back-btn-2" class="ghost">Назад ко входу</button>
+  </div>
+  <div id="recovery-step" style="display:none;flex-direction:column;gap:10px;">
+    <div class="small-note">Вы перешли по ссылке из письма. Задайте новый пароль.</div>
+    <div class="field"><label>Новый пароль</label><input id="rec-password" type="password" autocomplete="new-password"></div>
+    <div class="field"><label>Ещё раз</label><input id="rec-password2" type="password" autocomplete="new-password"></div>
+    <button id="rec-save-btn" class="primary">Сохранить пароль</button>
+    <button id="rec-skip-btn" class="ghost">Пропустить и открыть план</button>
+  </div>
+  <div id="login-error" style="color:var(--danger);font-size:12.5px;margin-top:10px;"></div>
+</div>
+
+<!-- адреса Supabase: localhost → тестовая база, GitHub Pages → боевая -->
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script type="module" src="src/main.js"></script>
+</body></html>
