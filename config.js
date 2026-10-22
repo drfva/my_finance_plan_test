@@ -23,9 +23,9 @@
 
   var DEV = {
     env: 'dev',
-    url: 'https://aostkaxeytjuuolclugs.supabase.co',
-    key: 'sb_publishable_H5X3q94o_TGHyte_VMvcuQ_hdY9CrhN',
-    returnUrl: 'https://drfva.github.io/my_finance_plan_v2/'
+    url: 'https://bldwhnlirleobmpteysb.supabase.co',
+    key: 'sb_publishable_Bgu9ncglwU86toX7lOQv1A_EvFjVae_',
+    returnUrl: 'https://drfva.github.io/my_finance_plan_test/'
   };
 
   window.APP_CONFIG = isLocal ? DEV : PROD;
