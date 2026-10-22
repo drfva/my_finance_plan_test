@@ -23,8 +23,8 @@
 
   var DEV = {
     env: 'dev',
-    url: 'https://aostkaxeytjuuolclugs.supabase.co',
-    key: 'sb_publishable_H5X3q94o_TGHyte_VMvcuQ_hdY9CrhN',
+    url: 'https://crokwtmokshdankujdhx.supabase.co',
+    key: 'sb_publishable_WBzL5wto5pGEiwbQFqxkSQ_dUOXxabB',
     returnUrl: 'https://drfva.github.io/my_finance_plan_v2/'
   };
 
