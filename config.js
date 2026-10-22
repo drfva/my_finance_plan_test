@@ -13,6 +13,13 @@
   var isLocal = location.hostname === 'localhost'
     || location.hostname === '127.0.0.1'
     || location.hostname === '';
+ var testPath = '/my_finance_plan_test/';
+
+ var isTestPages = location.hostname === 'drfva.github.io'
+  && (
+    location.pathname === testPath.slice(0, -1)
+    || location.pathname.startsWith(testPath)
+   );
 
   var PROD = {
     env: 'prod',
@@ -25,9 +32,9 @@
     env: 'dev',
     url: 'https://bldwhnlirleobmpteysb.supabase.co',
     key: 'sb_publishable_Bgu9ncglwU86toX7lOQv1A_EvFjVae_',
-    returnUrl: 'https://drfva.github.io/my_finance_plan_v2/'
+    returnUrl: 'https://drfva.github.io/my_finance_plan_test/'
   };
 
-  window.APP_CONFIG = isLocal ? DEV : PROD;
+  window.APP_CONFIG = (isLocal || isTestPages) ? DEV : PROD;
   window.APP_RETURN_URL = window.APP_CONFIG.returnUrl || '';
 })();
